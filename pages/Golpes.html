@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reconheça golpes e saiba o que fazer para se proteger ou pedir ajuda.">
+  <title>Golpes: como se proteger e pedir ajuda | Facilita Cidadão</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/golpes.css">
+</head>
+<body class="golpes-page">
+  <a class="pular" href="#principal">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="wrap barra">
+      <a class="logo" href="../index.html"><img src="../assets/img/favicon.svg" alt="">Facilita Cidadão</a>
+      <nav aria-label="Menu principal">
+        <ul><li><a href="../index.html">Início</a></li><li><a href="solucao.html">Serviços</a></li><li><a href="impacto.html">Impacto</a></li><li><a href="ajuda.html">Ajuda</a></li><li><a href="equipe.html">Equipe</a></li></ul>
+      </nav></div><form class="busca-global" action="solucao.html" method="get" role="search"><label class="so-leitor" for="busca-global">Buscar em todo o site</label><input id="busca-global" type="search" name="q" placeholder="Buscar páginas, assuntos e orientações"><button class="btn" type="submit">Buscar</button></form><div class="wrap acess" role="group" aria-label="Ajustes de leitura">
+      <button class="btn sec modo-tema" id="modo-tema" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">☾</button><span>Leitura:</span>
+      <button class="btn sec" id="fonte-menos" type="button" aria-label="Diminuir letra">A−</button>
+      <button class="btn sec" id="fonte-mais" type="button" aria-label="Aumentar letra">A+</button>
+      <button class="btn sec" id="contraste" type="button" aria-pressed="false">Alto contraste</button>
+      <button class="btn leitura-pagina" id="ouvir-pagina" type="button">Ouvir esta página</button>
+      <span id="leitura-status" role="status" aria-live="polite"></span>
+      <span id="status-acess" role="status"></span>
+    </div>
+  </header>
+
+  <main id="principal" class="wrap golpes-conteudo">
+    <p class="migalhas"><a href="../index.html">Início</a> › <a href="ajuda.html">Ajuda</a> › Golpes</p>
+    <section class="golpes-hero" aria-labelledby="titulo-golpes">
+      <p class="golpes-selo">Guia rápido de proteção</p>
+      <h1 id="titulo-golpes">Desconfie. Pare. Confirme.</h1>
+      <p>Golpistas tentam apressar você para conseguir dinheiro, senha ou código. Pare a conversa e confirme por um canal oficial.</p>
+      <a class="golpes-acao" href="#orientador-golpe">Me ajude a escolher o próximo passo</a>
+    </section>
+
+    <nav class="golpes-indice" aria-label="Nesta página">
+      <a href="#sinais">Como reconhecer</a>
+      <a href="#fui-vitima">Se você foi vítima</a>
+      <a href="#tipos">Tipos comuns</a>
+      <a href="#fontes">Canais oficiais</a>
+    </nav>
+
+    <section id="orientador-golpe" class="orientador-golpe" aria-labelledby="titulo-orientador-golpe">
+      <div class="orientador-cabecalho">
+        <span class="orientador-icone" aria-hidden="true">✓</span>
+        <div><p class="golpes-selo">Orientação rápida e privada</p><h2 id="titulo-orientador-golpe">O que aconteceu?</h2></div>
+      </div>
+      <p>Escolha a situação mais próxima da sua. Não escreva nomes, senhas, códigos ou dados da conta. A resposta aparece só nesta página.</p>
+      <form id="form-orientador-golpe" class="golpe-form">
+        <fieldset>
+          <legend>Qual opção combina com o que aconteceu?</legend>
+          <div class="golpe-opcoes">
+            <label class="golpe-opcao"><input type="radio" name="situacao-golpe" value="mensagem"><span><strong>Recebi uma mensagem ou ligação suspeita</strong><small>Ainda não enviei dinheiro nem dados.</small></span></label>
+            <label class="golpe-opcao"><input type="radio" name="situacao-golpe" value="link"><span><strong>Abri um link ou passei dados</strong><small>Informei senha, código ou dados pessoais.</small></span></label>
+            <label class="golpe-opcao"><input type="radio" name="situacao-golpe" value="pix"><span><strong>Enviei dinheiro ou fiz um Pix</strong><small>Quero saber o que fazer agora.</small></span></label>
+            <label class="golpe-opcao"><input type="radio" name="situacao-golpe" value="outro"><span><strong>Aconteceu outra coisa ou não tenho certeza</strong><small>Preciso de uma orientação inicial.</small></span></label>
+          </div>
+        </fieldset>
+        <p id="erro-orientador-golpe" class="erro-golpe" hidden role="alert">Escolha uma opção para ver os próximos passos.</p>
+        <button class="btn amarelo" type="submit">Ver o que fazer</button>
+      </form>
+      <div id="resultado-orientador-golpe" class="golpe-resposta" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      <p class="orientador-privacidade">O formulário não envia nem salva suas respostas. Se estiver em perigo agora, ligue 190 (Polícia) ou 192 (SAMU).</p>
+    </section>
+
+    <section id="sinais" class="golpes-secao" aria-labelledby="titulo-sinais">
+      <h2 id="titulo-sinais">Pare se alguém pedir isto</h2>
+      <div class="sinais-grade">
+        <article class="sinal-card"><span class="sinal-numero" aria-hidden="true">1</span><h3>Senha ou código</h3><p>Não informe senha, código recebido por SMS ou código do aplicativo.</p></article>
+        <article class="sinal-card"><span class="sinal-numero" aria-hidden="true">2</span><h3>Pix para liberar algo</h3><p>Não pague para receber prêmio, benefício, emprego ou dinheiro prometido.</p></article>
+        <article class="sinal-card"><span class="sinal-numero" aria-hidden="true">3</span><h3>Decidir com pressa</h3><p>Desconfie de ameaças, urgência e ofertas boas demais para ser verdade.</p></article>
+      </div>
+      <p class="golpes-regra"><strong>Na dúvida:</strong> desligue ou feche a conversa. Procure você mesmo o telefone ou o aplicativo oficial da empresa ou do órgão.</p>
+    </section>
+
+    <section id="fui-vitima" class="golpes-vitima" aria-labelledby="titulo-vitima">
+      <div class="vitima-cabecalho"><span class="vitima-icone" aria-hidden="true">!</span><div><p class="golpes-selo">Precisa de ajuda agora?</p><h2 id="titulo-vitima">Se você já caiu em um golpe</h2></div></div>
+      <ol class="vitima-passos">
+        <li><strong>Fale com seu banco agora.</strong> Use o telefone do cartão ou o aplicativo oficial. Peça para bloquear cartão ou conta, se necessário.</li>
+        <li><strong>Se fez um Pix, fale com seu banco agora.</strong> Conteste a transação e peça o Mecanismo Especial de Devolução (MED). O prazo para pedir é de até 80 dias, mas agir rápido aumenta a chance de recuperação. A devolução pode ser parcial ou não acontecer.</li>
+        <li><strong>Guarde as provas.</strong> Salve mensagens, recibos, números de telefone, links e horários. Não apague a conversa.</li>
+        <li><strong>Registre um boletim de ocorrência.</strong> Use o portal oficial do seu estado ou vá a uma delegacia da Polícia Civil. Nem todo tipo de golpe pode ser registrado pela internet.</li>
+      </ol>
+      <div class="golpe-registro-oficial">
+        <h3>Preparar o registro oficial</h3>
+        <p>Antes de começar, anote quando aconteceu, como foi o contato e o que ocorreu. Separe comprovantes e mensagens. Não envie senhas, códigos ou dados bancários para este site.</p>
+        <p><a class="btn amarelo" href="https://delegaciavirtual.sinesp.gov.br/portal/" target="_blank" rel="noopener noreferrer">Acessar a Delegacia Virtual</a></p>
+        <p>Escolha seu estado e confirme se o registro de golpe está disponível online. Se não estiver, procure a Polícia Civil. O site Facilita Cidadão não recebe nem transmite a denúncia.</p>
+      </div>
+      <p class="fonte-oficial">Orientação do Banco Central: <a href="https://www.bcb.gov.br/meubc/faqs/p/vitima-fez-um-pix-e-caiu-em-um-golpe" target="_blank" rel="noopener">o que fazer após cair em um golpe com Pix</a>. O pedido é feito junto ao seu banco. Não pague terceiros para "recuperar" dinheiro.</p>
+    </section>
+
+    <section id="tipos" class="golpes-secao" aria-labelledby="titulo-tipos">
+      <h2 id="titulo-tipos">Golpes comuns, em poucas palavras</h2>
+      <div class="tipos-grade">
+        <article class="tipo-card"><h3>Falso funcionário</h3><p>Alguém diz ser do banco ou do governo e pede senha, código ou transferência.</p><p><strong>Faça:</strong> desligue e ligue para o número oficial.</p></article>
+        <article class="tipo-card"><h3>Link ou site falso</h3><p>Uma mensagem leva a uma página que imita um banco, loja ou serviço público.</p><p><strong>Faça:</strong> não abra o link. Digite o endereço oficial no navegador.</p></article>
+        <article class="tipo-card"><h3>Prêmio ou benefício falso</h3><p>A mensagem promete dinheiro, mas cobra uma taxa ou pede seus dados.</p><p><strong>Faça:</strong> não pague. Confirme direto com o órgão responsável.</p></article>
+        <article class="tipo-card"><h3>Falso emprego ou empréstimo</h3><p>A pessoa pede depósito antecipado para liberar vaga ou empréstimo.</p><p><strong>Faça:</strong> não transfira dinheiro para receber uma promessa.</p></article>
+      </div>
+    </section>
+
+    <section id="fontes" class="golpes-fontes" aria-labelledby="titulo-fontes">
+      <h2 id="titulo-fontes">Consulte fontes oficiais</h2>
+      <p>Este guia não recebe denúncias nem envia seus dados. Para orientações atualizadas, consulte:</p>
+      <ul>
+        <li><a href="https://www.bcb.gov.br/golpes" target="_blank" rel="noopener">Banco Central: golpes e segurança no Pix</a></li>
+        <li><a href="https://www.gov.br/mj/pt-br/acesso-a-informacao/acoes-e-programas/sofri-um-golpe-e-agora/cai-no-golpe-do-falso-pix/" target="_blank" rel="noopener">Ministério da Justiça: caí em um golpe com Pix</a></li>
+      </ul>
+      <li><a href="https://www.gov.br/mj/pt-br/assuntos/sua-seguranca/seguranca-publica/diretoria-de-gestao-e-integracao-de-informacoes-1/produtos/devir" target="_blank" rel="noopener noreferrer">Ministério da Justiça: Delegacia Virtual (DEVIR)</a></li>
+      <p class="data-revisao">Consulte a data e as orientações atualizadas diretamente nas fontes oficiais.</p>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><p>Facilita Cidadão é um guia independente, não é um site do governo e não substitui orientação profissional. Não pedimos senha nem dados bancários.</p></div></footer>
+  <script src="../assets/js/acess.js"></script>
+  <script src="../assets/js/vendor/react.min.js"></script>
+  <script src="../assets/js/vendor/react-dom.min.js"></script>
+  <script src="../assets/js/dados.js"></script>
+  <script src="../assets/js/busca.js"></script>
+  <script src="../assets/js/busca-plus.js"></script>
+  <script src="../assets/js/ferramentas.js"></script>
+  <script src="../assets/js/assistente.js"></script>
+  <script src="../assets/js/golpes-form.js"></script>
+  <script src="../assets/js/leitura.js"></script>
+</body>
+</html>

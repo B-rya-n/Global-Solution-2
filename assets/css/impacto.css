@@ -1,0 +1,9 @@
+/* Tabela de acompanhamento da página de impacto. */
+.indicadores {
+  min-width: 680px;
+}
+
+.indicadores tbody th {
+  width: 32%;
+  background: var(--suave);
+}

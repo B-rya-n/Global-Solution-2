@@ -1,0 +1,290 @@
+/* Página Ajuda: uma escolha por vez, com ações visíveis e linguagem direta. */
+.ajuda-conteudo {
+  max-width: 1000px;
+}
+
+.ajuda-intro {
+  margin: 1rem 0 2rem;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border-left: 8px solid var(--azul);
+  border-radius: 0 18px 18px 0;
+  background: var(--suave);
+}
+
+.ajuda-intro h1 {
+  margin: .25rem 0 .5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.ajuda-intro p:last-child {
+  max-width: 55ch;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.ajuda-etiqueta {
+  margin: 0;
+  color: var(--azul-esc);
+  font-size: .9rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.ajuda-secao {
+  margin: 2.5rem 0;
+}
+
+.ajuda-grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .85rem;
+}
+
+.ajuda-card {
+  display: grid;
+  min-height: 112px;
+  grid-template-columns: 3rem minmax(0, 1fr) 1.5rem;
+  align-items: center;
+  gap: .85rem;
+  padding: 1rem;
+  border: 2px solid var(--borda);
+  border-radius: 16px;
+  background: var(--cartao);
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+.ajuda-card:hover {
+  border-color: var(--azul);
+  box-shadow: var(--sombra);
+}
+
+.ajuda-card strong,
+.ajuda-card small {
+  display: block;
+}
+
+.ajuda-card strong {
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.ajuda-card small {
+  margin-top: .25rem;
+  color: var(--tinta);
+  font-size: .93rem;
+  line-height: 1.4;
+}
+
+.ajuda-numero {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 12px;
+  background: var(--suave);
+  color: var(--azul-esc);
+  font-size: .95rem;
+  font-weight: 800;
+  place-items: center;
+}
+
+.ajuda-card-golpes {
+  border-color: #B33A2B;
+}
+
+.ajuda-card-golpes .ajuda-numero {
+  background: #B33A2B;
+  color: #fff;
+}
+
+.ajuda-seta {
+  color: var(--azul-esc);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ajuda-emergencia {
+  margin: 3rem 0;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border: 2px solid var(--borda);
+  border-top: 8px solid #A92C20;
+  border-radius: 18px;
+  background: var(--cartao);
+}
+
+.emergencia-intro {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  margin-bottom: 1.25rem;
+}
+
+.emergencia-intro h2 {
+  margin: .15rem 0;
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+}
+
+.emergencia-simbolo {
+  display: grid;
+  flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: #A92C20;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 900;
+  place-items: center;
+}
+
+.telefones-grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.telefone-card {
+  display: grid;
+  min-height: 150px;
+  align-content: start;
+  gap: .35rem;
+  padding: 1rem;
+  border: 2px solid var(--borda);
+  border-radius: 14px;
+  background: var(--fundo);
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+.telefone-card:hover {
+  border-color: var(--azul);
+}
+
+.telefone-card > strong {
+  color: var(--azul-esc);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.telefone-card > span {
+  line-height: 1.4;
+}
+
+.telefone-card .telefone-ligar {
+  margin-top: auto;
+  padding-top: .45rem;
+  color: var(--azul-esc);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
+.ajuda-apoio-emocional {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 1fr);
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1.1rem 1.25rem;
+  border-left: 6px solid var(--azul);
+  border-radius: 0 14px 14px 0;
+  background: var(--suave);
+}
+
+.ajuda-apoio-emocional h3 {
+  margin: 0 0 .35rem;
+}
+
+.ajuda-apoio-emocional p {
+  margin: .35rem 0;
+}
+
+.ajuda-apoio-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem;
+}
+
+.ajuda-apoio-acoes .btn {
+  width: auto;
+}
+
+.ajuda-nota,
+.ajuda-fonte {
+  font-size: .92rem;
+}
+
+.outros-telefones {
+  margin: 1.25rem 0;
+  padding: .25rem 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+}
+
+.outros-telefones ul {
+  display: grid;
+  gap: .5rem;
+  padding-left: 1.3rem;
+}
+
+.outros-telefones a {
+  color: var(--tinta);
+}
+
+.ajuda-sem-internet {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: var(--suave);
+}
+
+.ajuda-sem-internet h2 {
+  margin-top: 0;
+}
+
+.ajuda-aviso {
+  padding: 1rem;
+  border-top: 1px solid var(--borda);
+  font-size: .95rem;
+}
+
+body.contraste .ajuda-card-golpes {
+  border-color: var(--foco);
+}
+
+body.contraste .ajuda-card-golpes .ajuda-numero {
+  border: 2px solid var(--foco);
+  background: #000;
+  color: var(--foco);
+}
+
+body.contraste .ajuda-emergencia {
+  border-top-color: var(--foco);
+}
+
+body.contraste .emergencia-simbolo {
+  border: 2px solid var(--foco);
+  background: #000;
+  color: var(--foco);
+}
+
+@media (max-width: 680px) {
+  .ajuda-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .telefones-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .ajuda-apoio-emocional {
+    grid-template-columns: 1fr;
+  }
+
+  .telefone-card {
+    min-height: 0;
+  }
+}

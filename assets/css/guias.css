@@ -1,0 +1,9 @@
+/* Ajustes da grade de guias. */
+.guia h2 {
+  margin: .2rem 0 .6rem;
+  font-size: 1.3rem;
+}
+
+.guia .passos > li {
+  margin: .6rem 0;
+}

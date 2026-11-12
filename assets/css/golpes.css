@@ -1,0 +1,427 @@
+/* Identidade própria para a área de proteção contra golpes. */
+.golpes-conteudo {
+  max-width: 1080px;
+}
+
+.golpes-hero {
+  margin: 1rem 0 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 24px;
+  background: #142b45;
+  color: #fff;
+}
+
+.golpes-hero h1 {
+  max-width: 16ch;
+  margin: .25rem 0 .75rem;
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  line-height: 1.05;
+}
+
+.golpes-hero > p:not(.golpes-selo) {
+  max-width: 54ch;
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+}
+
+.golpes-selo {
+  margin: 0;
+  color: #FFE08A;
+  font-size: .9rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.golpes-acao {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  padding: .7rem 1.25rem;
+  border: 3px solid #FFE08A;
+  border-radius: 12px;
+  background: #FFE08A;
+  color: #142b45;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.golpes-acao:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
+.golpes-indice {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .75rem;
+  margin: 1.5rem 0 3rem;
+}
+
+.golpes-indice a {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: center;
+  padding: .7rem;
+  border: 2px solid var(--borda);
+  border-radius: 12px;
+  background: var(--cartao);
+  color: var(--tinta);
+  text-align: center;
+  text-decoration: none;
+}
+
+.golpes-indice a:hover {
+  border-color: var(--azul);
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
+.orientador-golpe {
+  margin: 2rem 0 3rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--borda);
+  border-radius: 22px;
+  background: var(--cartao);
+  box-shadow: var(--sombra);
+}
+
+.orientador-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+}
+
+.orientador-cabecalho h2 {
+  margin: .15rem 0 .4rem;
+  font-size: clamp(1.55rem, 4vw, 2rem);
+}
+
+.orientador-icone {
+  display: grid;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #E7F3EC;
+  color: #176B3A;
+  font-size: 1.4rem;
+  font-weight: 800;
+  place-items: center;
+}
+
+.golpe-form fieldset {
+  margin: 1.25rem 0;
+  padding: 0;
+  border: 0;
+}
+
+.golpe-form legend {
+  margin-bottom: .65rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.golpe-opcoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem;
+}
+
+.golpe-opcao {
+  display: flex;
+  min-height: 76px;
+  align-items: flex-start;
+  gap: .75rem;
+  margin: 0;
+  padding: .9rem 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  background: var(--fundo);
+  cursor: pointer;
+}
+
+.golpe-opcao:has(input:checked),
+.golpe-opcao.selecionada {
+  border: 2px solid var(--azul);
+  background: var(--suave);
+}
+
+.golpe-opcao input {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  min-height: 1.25rem;
+  height: 1.25rem;
+  margin: .15rem 0 0;
+  accent-color: var(--azul);
+}
+
+.golpe-opcao span,
+.golpe-opcao small {
+  display: block;
+}
+
+.golpe-opcao strong {
+  line-height: 1.35;
+}
+
+.golpe-opcao small {
+  margin-top: .25rem;
+  color: var(--tinta);
+  font-size: .95rem;
+  font-weight: 400;
+}
+
+.golpe-form .btn {
+  width: auto;
+}
+
+.erro-golpe {
+  margin: .5rem 0;
+  color: var(--erro);
+  font-weight: 800;
+}
+
+.golpe-resposta {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-left: 5px solid var(--azul);
+  border-radius: 0 14px 14px 0;
+  background: var(--suave);
+}
+
+.golpe-resposta h3 {
+  margin: 0 0 .5rem;
+}
+
+.golpe-resposta ol {
+  display: grid;
+  gap: .5rem;
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.orientador-privacidade {
+  margin: 1rem 0 0;
+  color: var(--tinta);
+  font-size: .9rem;
+}
+
+.golpes-secao {
+  margin: 3rem 0;
+}
+
+.golpes-secao > h2,
+.golpes-fontes > h2 {
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+
+.sinais-grade,
+.tipos-grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sinal-card,
+.tipo-card {
+  padding: 1.3rem;
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  background: var(--cartao);
+}
+
+.sinal-card h3,
+.tipo-card h3 {
+  margin: .5rem 0;
+  color: var(--azul-esc);
+  font-size: 1.2rem;
+}
+
+.sinal-card p,
+.tipo-card p {
+  margin: .45rem 0;
+}
+
+.sinal-numero {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 2px solid var(--azul);
+  border-radius: 50%;
+  color: var(--azul-esc);
+  font-size: 1.15rem;
+  font-weight: 800;
+  place-items: center;
+}
+
+.golpes-regra {
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.2rem;
+  border-left: 6px solid var(--ambar);
+  border-radius: 0 12px 12px 0;
+  background: var(--suave);
+}
+
+.golpe-registro-oficial {
+  margin: 1.25rem 0;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--azul);
+  border-radius: 14px;
+  background: var(--suave);
+}
+
+.golpe-registro-oficial h3 { margin: 0 0 .4rem; }
+.golpe-registro-oficial p { margin: .55rem 0; }
+.golpe-registro-oficial .btn { width: auto; }
+
+@media (max-width: 520px) {
+  .golpe-registro-oficial .btn { width: 100%; text-align: center; }
+}
+
+.golpes-vitima {
+  margin: 3rem 0;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 2px solid #A92C20;
+  border-radius: 20px;
+  background: #FFF6F3;
+  color: #291713;
+}
+
+.vitima-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vitima-cabecalho h2 {
+  margin: .15rem 0;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+}
+
+.vitima-cabecalho .golpes-selo {
+  color: #8D2118;
+}
+
+.vitima-icone {
+  display: grid;
+  flex: 0 0 3.25rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: #A92C20;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 900;
+  place-items: center;
+}
+
+.vitima-passos {
+  display: grid;
+  gap: .8rem;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.vitima-passos li {
+  padding-left: .3rem;
+}
+
+.fonte-oficial {
+  padding-top: 1rem;
+  border-top: 1px solid #D8B7B2;
+}
+
+.tipos-grade {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tipo-card {
+  border-top: 4px solid var(--azul);
+}
+
+.golpes-fontes {
+  margin: 3rem 0 1rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: var(--suave);
+}
+
+.golpes-fontes ul {
+  display: grid;
+  gap: .5rem;
+  padding-left: 1.4rem;
+}
+
+.data-revisao {
+  margin-bottom: 0;
+  font-size: .9rem;
+}
+
+body.contraste .golpes-hero,
+body.contraste .golpes-vitima {
+  border: 3px solid var(--foco);
+  background: #000;
+  color: #fff;
+}
+
+body.tema-escuro .golpes-vitima {
+  border-color: #D66A5E;
+  background: #2B1D20;
+  color: #FFF4F1;
+}
+
+body.tema-escuro .vitima-cabecalho .golpes-selo {
+  color: #FFB4A8;
+}
+
+body.tema-escuro .fonte-oficial {
+  border-color: #76535A;
+}
+
+body.contraste .golpes-selo,
+body.contraste .vitima-cabecalho .golpes-selo {
+  color: #FFE14D;
+}
+
+body.contraste .golpes-acao {
+  border-color: #FFE14D;
+  background: #000;
+  color: #FFE14D;
+}
+
+body.contraste .orientador-golpe,
+body.contraste .golpe-opcao,
+body.contraste .golpe-resposta {
+  border: 2px solid var(--foco);
+  background: #000;
+  color: #fff;
+}
+
+@media (max-width: 760px) {
+  .golpes-indice {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sinais-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .golpe-opcoes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .tipos-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .golpes-hero {
+    border-radius: 16px;
+  }
+}

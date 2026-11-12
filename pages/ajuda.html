@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Encontre o próximo passo, atendimento público e telefones importantes.">
+  <title>Ajuda: encontre por onde começar | Facilita Cidadão</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/ajuda.css">
+</head>
+<body class="pagina-ajuda">
+  <a class="pular" href="#principal">Pular para o conteúdo</a>
+  <header class="topo">
+    <div class="wrap barra">
+      <a class="logo" href="../index.html"><img src="../assets/img/favicon.svg" alt="">Facilita Cidadão</a>
+      <nav aria-label="Menu principal">
+        <ul><li><a href="../index.html">Início</a></li><li><a href="solucao.html">Serviços</a></li><li><a href="impacto.html">Impacto</a></li><li><a href="ajuda.html" aria-current="page">Ajuda</a></li><li><a href="equipe.html">Equipe</a></li></ul>
+      </nav></div><form class="busca-global" action="solucao.html" method="get" role="search"><label class="so-leitor" for="busca-global">Buscar em todo o site</label><input id="busca-global" type="search" name="q" placeholder="Buscar páginas, assuntos e orientações"><button class="btn" type="submit">Buscar</button></form><div class="wrap acess" role="group" aria-label="Ajustes de leitura">
+      <button class="btn sec modo-tema" id="modo-tema" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">☾</button><span>Leitura:</span>
+      <button class="btn sec" id="fonte-menos" type="button" aria-label="Diminuir letra">A−</button>
+      <button class="btn sec" id="fonte-mais" type="button" aria-label="Aumentar letra">A+</button>
+      <button class="btn sec" id="contraste" type="button" aria-pressed="false">Alto contraste</button>
+      <button class="btn leitura-pagina" id="ouvir-pagina" type="button">Ouvir esta página</button>
+      <span id="leitura-status" role="status" aria-live="polite"></span>
+      <span id="status-acess" role="status"></span>
+    </div>
+  </header>
+
+  <main id="principal" class="wrap ajuda-conteudo">
+    <p class="migalhas"><a href="../index.html">Início</a> › Ajuda</p>
+    <header class="ajuda-intro">
+      <p class="ajuda-etiqueta">Estamos aqui para orientar</p>
+      <h1>Como podemos ajudar?</h1>
+      <p>Escolha o que você precisa. Mostramos o próximo passo com palavras simples.</p>
+    </header>
+
+    <section aria-labelledby="titulo-caminhos" class="ajuda-secao">
+      <h2 id="titulo-caminhos">Escolha um assunto</h2>
+      <div class="ajuda-grade">
+        <a class="ajuda-card" href="solucao.html"><span class="ajuda-numero" aria-hidden="true">01</span><span><strong>Quero encontrar um serviço</strong><small>Saúde, documentos, trabalho e benefícios</small></span><span class="ajuda-seta" aria-hidden="true">›</span></a>
+        <a class="ajuda-card" href="atendimento.html"><span class="ajuda-numero" aria-hidden="true">02</span><span><strong>Quero ir a um lugar perto</strong><small>Unidades de saúde, CRAS e outros locais</small></span><span class="ajuda-seta" aria-hidden="true">›</span></a>
+        <a class="ajuda-card" href="direitos.html"><span class="ajuda-numero" aria-hidden="true">03</span><span><strong>Quero saber se tenho direito</strong><small>Responda algumas perguntas simples</small></span><span class="ajuda-seta" aria-hidden="true">›</span></a>
+        <a class="ajuda-card" href="guias.html"><span class="ajuda-numero" aria-hidden="true">04</span><span><strong>Quero saber o que fazer</strong><small>Orientações para situações do dia a dia</small></span><span class="ajuda-seta" aria-hidden="true">›</span></a>
+        <a class="ajuda-card ajuda-card-golpes" href="Golpes.html"><span class="ajuda-numero" aria-hidden="true">!</span><span><strong>Acho que caí em um golpe</strong><small>Veja o que fazer agora e como pedir ajuda</small></span><span class="ajuda-seta" aria-hidden="true">›</span></a>
+      </div>
+    </section>
+
+    <section id="emergencia" aria-labelledby="titulo-emergencia" class="ajuda-emergencia">
+      <div class="emergencia-intro"><span class="emergencia-simbolo" aria-hidden="true">!</span><div><p class="ajuda-etiqueta">Precisa de ajuda imediata?</p><h2 id="titulo-emergencia">Ligue para um serviço de emergência</h2></div></div>
+      <div class="telefones-grade">
+        <a class="telefone-card" href="tel:190"><strong>190</strong><span>Polícia Militar<br>perigo ou crime acontecendo</span><span class="telefone-ligar">Ligar 190</span></a>
+        <a class="telefone-card" href="tel:192"><strong>192</strong><span>SAMU<br>urgência médica</span><span class="telefone-ligar">Ligar 192</span></a>
+        <a class="telefone-card" href="tel:193"><strong>193</strong><span>Bombeiros<br>incêndio, acidente ou resgate</span><span class="telefone-ligar">Ligar 193</span></a>
+      </div>
+      <div class="ajuda-apoio-emocional" aria-labelledby="titulo-cvv">
+        <div><h3 id="titulo-cvv">Precisa conversar sobre como está se sentindo?</h3>
+          <p>O CVV oferece apoio emocional gratuito e sigiloso pelo telefone <strong>188</strong>, 24 horas por dia. Não substitui atendimento de saúde.</p>
+          <p>Para atendimento psicológico pelo SUS, procure uma UBS ou CAPS. Se houver risco imediato à vida, ligue <strong>192</strong> ou vá a uma UPA.</p>
+        </div>
+        <div class="ajuda-apoio-acoes"><a class="btn sec" href="tel:188">Ligar para 188</a><a href="solucao.html?q=saude%20mental">Encontrar atendimento de saúde mental pelo SUS</a><a href="https://cvv.org.br/ligue-188-3/" target="_blank" rel="noopener">Como funciona o CVV (site oficial)</a></div>
+      </div>
+      <p class="ajuda-nota">Use esses números quando houver risco ou necessidade urgente de atendimento.</p>
+      <details class="outros-telefones" id="telefones">
+        <summary>Ver outros telefones de ajuda</summary>
+        <ul>
+          <li><a href="tel:180"><strong>180</strong> — orientação e atendimento à mulher em situação de violência.</a></li>
+          <li><a href="tel:100"><strong>100</strong> — denunciar violações de direitos humanos.</a></li>
+          <li><a href="tel:121"><strong>121</strong> — dúvidas sobre serviços e programas sociais.</a></li>
+          <li><a href="tel:135"><strong>135</strong> — serviços do INSS e benefícios.</a></li>
+          <li><a href="tel:136"><strong>136</strong> — informações e ouvidoria do SUS.</a></li>
+          <li><a href="tel:158"><strong>158</strong> — informações do Ministério do Trabalho.</a></li>
+        </ul>
+      </details>
+      <p class="ajuda-fonte">Números de emergência: <a href="https://www.gov.br/mcom/pt-br/noticias/noticias_alt/2026/setembro/emergencia-voce-sabe-para-quem-ligar-quando-precisa-de-ajuda" target="_blank" rel="noopener">Ministério das Comunicações</a>. Telefones sociais e do INSS: <a href="https://www.gov.br/mds/pt-br/canais_atendimento/ouvidoria/disque-social-121" target="_blank" rel="noopener">MDS</a> e <a href="https://www.gov.br/inss/pt-br/canais_atendimento/central-135" target="_blank" rel="noopener">INSS</a>. Saúde: <a href="https://www.gov.br/saude/pt-br/canais-de-atendimento" target="_blank" rel="noopener">Ministério da Saúde, Disque Saúde 136</a>. Trabalho: <a href="https://www.gov.br/trabalho-e-emprego/pt-br/assuntos/inspecao-do-trabalho/acesso-a-informacao/central-alo-trabalho-158" target="_blank" rel="noopener">Alô Trabalho 158</a>.</p>
+    </section>
+
+    <section class="ajuda-sem-internet" aria-labelledby="titulo-sem-internet">
+      <h2 id="titulo-sem-internet">Está sem internet ou não sabe por onde começar?</h2>
+      <p>Peça ajuda no CRAS, na unidade de saúde ou na prefeitura da sua cidade. Se puder, leve um documento com foto. Você também pode pedir a alguém de confiança para ler esta página com você.</p>
+      <a class="btn sec" href="atendimento.html">Encontrar um local de atendimento</a>
+    </section>
+
+    <p class="ajuda-aviso">Este site é um guia independente, não é um serviço do governo. Confirme horários e regras diretamente com o órgão responsável.</p>
+  </main>
+
+  <footer><div class="wrap"><p>Facilita Cidadão não pede senha, código de verificação nem dados bancários.</p></div></footer>
+  <script src="../assets/js/acess.js"></script>
+  <script src="../assets/js/vendor/react.min.js"></script>
+  <script src="../assets/js/vendor/react-dom.min.js"></script>
+  <script src="../assets/js/dados.js"></script>
+  <script src="../assets/js/busca.js"></script>
+  <script src="../assets/js/ferramentas.js"></script>
+  <script src="../assets/js/assistente.js"></script>
+  <script src="../assets/js/leitura.js"></script>
+</body>
+</html>

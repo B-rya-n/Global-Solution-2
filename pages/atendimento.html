@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atendimento perto de você | Facilita Cidadão</title>
+<meta name="description" content="Descubra qual unidade pública procurar (UPA, UBS, CRAS, INSS e outras), o que levar e abra o mapa perto de você.">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/atendimento.css">
+</head>
+<body>
+<a class="pular" href="#principal">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="wrap barra">
+    <a class="logo" href="../index.html"><img src="../assets/img/favicon.svg" alt="">Facilita Cidadão</a>
+    <nav aria-label="Menu principal">
+      <ul><li><a href="../index.html">Início</a></li><li><a href="solucao.html">Serviços</a></li><li><a href="impacto.html">Impacto</a></li><li><a href="ajuda.html">Ajuda</a></li><li><a href="equipe.html">Equipe</a></li></ul>
+    </nav></div><form class="busca-global" action="solucao.html" method="get" role="search"><label class="so-leitor" for="busca-global">Buscar em todo o site</label><input id="busca-global" type="search" name="q" placeholder="Buscar páginas, assuntos e orientações"><button class="btn" type="submit">Buscar</button></form><div class="wrap acess" role="group" aria-label="Ajustes de leitura">
+    <button class="btn sec modo-tema" id="modo-tema" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">☾</button><span>Leitura:</span>
+    <button class="btn sec" id="fonte-menos" type="button" aria-label="Diminuir letra">A−</button>
+    <button class="btn sec" id="fonte-mais" type="button" aria-label="Aumentar letra">A+</button>
+    <button class="btn sec" id="contraste" type="button" aria-pressed="false">Alto contraste</button>
+    <button class="btn leitura-pagina" id="ouvir-pagina" type="button">▶ Ouvir esta página</button>
+    <span id="leitura-status" role="status" aria-live="polite"></span>
+    <span id="status-acess" role="status"></span>
+  </div>
+</header>
+<main id="principal" class="wrap">
+  <p class="migalhas"><a href="../index.html">Início</a> › Atendimento perto de você</p>
+  <h1>Atendimento perto de você</h1>
+  <p class="lead-escuro">Veja endereços cadastrados em Suzano (SP). Em outras cidades, consulte os tipos de unidade e abra a busca no mapa. Confirme o local e o horário antes de sair.</p>
+  <div class="emerg" role="note">
+    <strong>Emergência?</strong> Não use o formulário: ligue <strong>192</strong> (SAMU), <strong>190</strong> (Polícia) ou <strong>193</strong> (Bombeiros).
+  </div>
+  <form id="form-atend" class="cartao" novalidate>
+    <label for="grupo">Que tipo de atendimento você procura?</label>
+    <p class="erro" id="erro-grupo" aria-live="assertive"></p>
+    <select id="grupo" aria-describedby="erro-grupo"><option value="">Escolha uma opção</option></select>
+    <label for="cidade">Sua cidade</label>
+    <input type="text" id="cidade" autocomplete="address-level2" value="Suzano" placeholder="Ex.: Suzano, SP" aria-describedby="erro-grupo status-loc">
+    <div id="filtros-locais" hidden>
+      <label for="servico-local">Serviço em Suzano</label><select id="servico-local"></select>
+      <label for="bairro-local">Bairro da unidade</label><select id="bairro-local"></select>
+    </div>
+    <p><button class="btn sec" id="usar-loc" type="button">Usar minha localização</button> <span id="status-loc" role="status"></span></p>
+    <p><button class="btn" type="submit">Mostrar unidades</button></p>
+  </form>
+  <section aria-labelledby="t-res"><h2 id="t-res">Unidades indicadas</h2>
+    <div id="resultado" aria-live="polite"><p class="aviso">Preencha o formulário acima para ver as unidades.</p></div>
+  </section>
+  <p class="aviso">Ao abrir uma rota, o Google Maps recebe o endereço da unidade e, se você permitiu, sua localização de partida. Confirme horário e atendimento antes de sair de casa.</p>
+</main>
+<footer><div class="wrap">
+  <p>Facilita Cidadão é um guia independente, não é um site do governo. Não pedimos cadastro, senha ou dados bancários. A localização só é usada com sua autorização em Serviços ou Atendimento. Confirme as regras nos canais oficiais.</p>
+</div></footer>
+<script src="../assets/js/acess.js"></script>
+<script src="../assets/js/vendor/react.min.js"></script>
+<script src="../assets/js/vendor/react-dom.min.js"></script>
+<script src="../assets/js/dados.js"></script>
+<script src="../assets/js/busca.js"></script>
+<script src="../assets/js/ferramentas.js"></script>
+<script src="../assets/js/assistente.js"></script>
+<script src="../assets/js/unidades-suzano.js"></script>
+<script src="../assets/js/atendimento.js"></script>
+<script src="../assets/js/leitura.js"></script>
+</body>
+</html>

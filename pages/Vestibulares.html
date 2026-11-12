@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vestibulares | Facilita Cidadão</title>
+<meta name="description" content="Encontre vestibulares no Brasil e em São Paulo. Veja também materiais públicos e gratuitos para estudar.">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/vestibulares.css">
+</head>
+<body>
+<a class="pular" href="#principal">Pular para o conteúdo</a>
+<header class="topo">
+  <div class="wrap barra">
+    <a class="logo" href="../index.html"><img src="../assets/img/favicon.svg" alt="">Facilita Cidadão</a>
+    <nav aria-label="Menu principal">
+      <ul><li><a href="../index.html">Início</a></li><li><a href="solucao.html">Serviços</a></li><li><a href="impacto.html">Impacto</a></li><li><a href="ajuda.html">Ajuda</a></li><li><a href="equipe.html">Equipe</a></li></ul>
+    </nav></div><form class="busca-global" action="solucao.html" method="get" role="search"><label class="so-leitor" for="busca-global">Buscar em todo o site</label><input id="busca-global" type="search" name="q" placeholder="Buscar páginas, assuntos e orientações"><button class="btn" type="submit">Buscar</button></form><div class="wrap acess" role="group" aria-label="Ajustes de leitura">
+    <button class="btn sec modo-tema" id="modo-tema" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">☾</button><span>Leitura:</span>
+    <button class="btn sec" id="fonte-menos" type="button" aria-label="Diminuir letra">A−</button>
+    <button class="btn sec" id="fonte-mais" type="button" aria-label="Aumentar letra">A+</button>
+    <button class="btn sec" id="contraste" type="button" aria-pressed="false">Alto contraste</button>
+    <button class="btn leitura-pagina" id="ouvir-pagina" type="button">▶ Ouvir esta página</button>
+    <span id="leitura-status" role="status" aria-live="polite"></span>
+    <span id="status-acess" role="status"></span>
+  </div>
+</header>
+<main id="principal" class="wrap">
+  <p class="migalhas"><a href="../index.html">Início</a> › Vestibulares</p>
+  <header class="vest-intro">
+    <p class="vest-etiqueta">Estudo e ingresso</p>
+    <h1>Encontre onde estudar</h1>
+    <p>Veja opções para todo o Brasil e para o estado de São Paulo. Depois consulte o site oficial para confirmar cursos, vagas e prazos.</p>
+  </header>
+  <section class="vest-sec" aria-labelledby="titulo-oportunidades">
+    <h2 id="titulo-oportunidades">Encontre uma oportunidade</h2>
+    <p>Escolha uma região ou use os filtros para encontrar uma opção.</p>
+    <div class="escopo-vest" role="group" aria-label="Filtrar por região">
+      <button type="button" class="escopo-botao" data-escopo="BR">No Brasil todo</button>
+      <button type="button" class="escopo-botao" data-escopo="SP">No estado de São Paulo</button>
+      <button type="button" class="escopo-botao" data-escopo="">Todas as regiões</button>
+    </div>
+  <form id="form-vest" class="cartao" role="search" aria-label="Filtrar vestibulares" novalidate>
+    <label for="f-busca">Buscar por curso ou instituição</label>
+    <input type="search" id="f-busca" autocomplete="off" placeholder="Ex.: enfermagem, Fatec, Enem">
+    <div class="linha filtros-localidade">
+      <div><label for="f-estado">Estado</label><select id="f-estado"></select></div>
+      <div><label for="f-cidade">Cidade</label><select id="f-cidade"></select></div>
+    </div>
+    <details class="filtros-adicionais">
+      <summary>Mais filtros: tipo, instituição e forma de ingresso</summary>
+      <div class="linha">
+        <div><label for="f-tipo">Tipo de curso ou processo</label><select id="f-tipo"></select></div>
+        <div><label for="f-rede">Quem oferece</label><select id="f-rede"></select></div>
+        <div><label for="f-forma">Como entrar</label><select id="f-forma"></select></div>
+      </div>
+    </details>
+    <p class="vest-nota">“Brasil todo” inclui Enem, Sisu, ProUni e Fies. Cursos, vagas e prazos mudam: confira o edital no site oficial.</p>
+    <button class="btn sec" id="limpar" type="button">Limpar filtros</button>
+  </form>
+  <section aria-labelledby="t-res">
+    <h2 id="t-res">Opções encontradas</h2>
+    <p id="status-filtro" class="ok" role="status"></p>
+    <div id="resultado"></div>
+  </section>
+  <section id="relacionados" aria-label="Vestibulares relacionados"></section>
+  </section>
+
+  <section class="preparo-vest" aria-labelledby="titulo-preparo">
+    <p class="vest-etiqueta">Materiais gratuitos</p>
+    <h2 id="titulo-preparo">Prepare-se sem pagar por material</h2>
+    <p>Comece pelas provas anteriores e use os materiais oficiais para estudar no seu ritmo.</p>
+    <section class="plano-estudo" aria-labelledby="titulo-plano">
+      <h3 id="titulo-plano">Um plano simples para começar</h3>
+      <ol>
+        <li><strong>Escolha a prova.</strong> Veja o que cai no edital do curso que você quer.</li>
+        <li><strong>Faça uma prova antiga.</strong> Resolva no seu tempo e marque o que foi difícil.</li>
+        <li><strong>Revise e tente de novo.</strong> Estude os assuntos com mais erros e acompanhe seus avanços.</li>
+      </ol>
+    </section>
+    <div class="preparo-grade">
+      <article class="preparo-card preparo-destaque">
+        <span class="preparo-numero" aria-hidden="true">01</span>
+        <h3>Provas anteriores do Enem</h3>
+        <p>Baixe provas e gabaritos oficiais para praticar. A página do Inep reúne edições anteriores.</p>
+        <a class="btn amarelo" href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank" rel="noopener">Ver provas e gabaritos do Inep</a>
+      </article>
+      <article class="preparo-card">
+        <span class="preparo-numero" aria-hidden="true">02</span>
+        <h3>Livros digitais do MEC</h3>
+        <p>Leia livros gratuitos na biblioteca digital pública do Ministério da Educação. O acesso pede conta gov.br.</p>
+        <a href="https://meclivros.mec.gov.br/">Abrir MEC Livros</a>
+      </article>
+      <article class="preparo-card">
+        <span class="preparo-numero" aria-hidden="true">03</span>
+        <h3>Provas anteriores da Fatec</h3>
+        <p>Use questões e gabaritos de vestibulares passados para conhecer o formato da prova.</p>
+        <a href="https://www.cps.sp.gov.br/fatec/vestibular/" target="_blank" rel="noopener">Ver provas e gabaritos no site do Centro Paula Souza</a>
+      </article>
+      <article class="preparo-card">
+        <span class="preparo-numero" aria-hidden="true">04</span>
+        <h3>Guia de redação do Enem 2026</h3>
+        <p>Veja o que é avaliado e consulte versões acessíveis para pessoas com dislexia, TEA ou deficiência auditiva.</p>
+        <a href="https://www.gov.br/inep/pt-br/centrais-de-conteudo/acervo-linha-editorial/publicacoes-institucionais/avaliacoes-e-exames-da-educacao-basica/a-redacao-do-enem-2026-cartilha-do-a-participante" target="_blank" rel="noopener">Abrir cartilha oficial do Inep</a>
+      </article>
+    </div>
+    <p class="vest-nota">A disponibilidade de turmas, materiais e inscrições pode mudar. Confirme as informações no órgão responsável.</p>
+  </section>
+</main>
+<footer><div class="wrap">
+  <p>Facilita Cidadão é um guia independente, não é um site do governo. Não pedimos cadastro, senha ou dados bancários. A localização só é usada se você autorizar em Atendimento. Confirme as regras nos canais oficiais.</p>
+</div></footer>
+<script src="../assets/js/acess.js"></script>
+<script src="../assets/js/vendor/react.min.js"></script>
+<script src="../assets/js/vendor/react-dom.min.js"></script>
+<script src="../assets/js/dados.js"></script>
+<script src="../assets/js/busca.js"></script>
+<script src="../assets/js/ferramentas.js"></script>
+<script src="../assets/js/assistente.js"></script>
+<script src="../assets/js/vestibulares-dados.js"></script>
+<script src="../assets/js/vestibulares.js"></script>
+<script src="../assets/js/leitura.js"></script>
+</body>
+</html>
+

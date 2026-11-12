@@ -1,0 +1,16 @@
+/* Página "Tenho direito?" */
+fieldset{border:2px solid var(--borda);border-radius:14px;margin:1rem 0;padding:.4rem 1rem 1rem}
+legend{font-weight:800;padding:0 .4rem}
+fieldset.campo-erro{border-color:var(--erro);border-left-width:6px}
+.opcoes label{display:flex;gap:.7rem;align-items:center;margin:.3rem 0;font-weight:400}
+.opcoes input{width:1.6rem;height:1.6rem;min-height:0;flex:none}
+.nivel{display:inline-block;border:2px solid var(--borda);border-radius:99px;padding:0 .8rem;font-size:.9rem;font-weight:800}
+.nivel.provavel{border-color:var(--verde);color:var(--verde)}
+.nivel.possivel{border-color:var(--azul);color:var(--azul)}
+.direito h4{margin:.2rem 0 .5rem;font-size:1.15rem}
+.direito ul{padding-left:1.2rem}
+.resultado-direitos h3{margin:2rem 0 .3rem}
+.advogado{border-left:10px solid var(--azul)}
+.advogado h3{margin:1.2rem 0 .3rem}
+fieldset fieldset{border-width:1px;border-radius:10px;margin:.8rem 0}
+fieldset fieldset legend{font-size:1rem}

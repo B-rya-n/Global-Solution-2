@@ -1,0 +1,37 @@
+(function () {
+  "use strict";
+  const h = document.documentElement, b = document.body;
+  const ler = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const salvar = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+  const st = document.getElementById("status-acess");
+  const avisar = t => { if (st) st.textContent = t; };
+  const tema = document.getElementById("modo-tema");
+  const baseTema = new URL("../img/", document.currentScript.src);
+  const iconeTema = document.createElement("img");
+  iconeTema.alt = "";
+  iconeTema.setAttribute("aria-hidden", "true");
+  iconeTema.width = 26;
+  iconeTema.height = 26;
+  iconeTema.decoding = "async";
+  const aplicarTema = escuro => {
+    b.classList.toggle("tema-escuro", escuro);
+    if (!tema) return;
+    iconeTema.src = new URL(escuro ? "white-theme.jpg" : "dark-theme.png", baseTema).href;
+    iconeTema.className = "icone-tema";
+    tema.replaceChildren(iconeTema);
+    tema.setAttribute("aria-label", escuro ? "Ativar modo claro" : "Ativar modo escuro");
+    tema.title = escuro ? "Ativar modo claro" : "Ativar modo escuro";
+    salvar("fc-tema", escuro ? "1" : "0");
+  };
+  aplicarTema(ler("fc-tema") === "1");
+  if (tema) tema.addEventListener("click", () => aplicarTema(!b.classList.contains("tema-escuro")));
+  let tam = Math.min(3, Math.max(0, parseInt(ler("fc-tam"), 10) || 0));
+  const aplicarTam = () => { for (let i = 0; i <= 3; i++) h.classList.remove("tam-" + i); h.classList.add("tam-" + tam); salvar("fc-tam", tam); };
+  const bc = document.getElementById("contraste");
+  const aplicarContraste = on => { b.classList.toggle("contraste", on); if (bc) bc.setAttribute("aria-pressed", String(on)); salvar("fc-contraste", on ? "1" : "0"); };
+  aplicarTam(); aplicarContraste(ler("fc-contraste") === "1");
+  const mais = document.getElementById("fonte-mais"), menos = document.getElementById("fonte-menos");
+  if (mais) mais.addEventListener("click", () => { if (tam < 3) { tam++; aplicarTam(); avisar("Letra maior."); } else avisar("A letra já está no tamanho máximo."); });
+  if (menos) menos.addEventListener("click", () => { if (tam > 0) { tam--; aplicarTam(); avisar("Letra menor."); } else avisar("A letra já está no tamanho normal."); });
+  if (bc) bc.addEventListener("click", () => { const on = !b.classList.contains("contraste"); aplicarContraste(on); avisar(on ? "Alto contraste ligado." : "Alto contraste desligado."); });
+})();

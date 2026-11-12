@@ -1,0 +1,22 @@
+/* Estilos exclusivos da página de atendimento. */
+.emerg {
+  margin: 1rem 0;
+  padding: .8rem 1rem;
+  border: 3px solid var(--erro);
+  border-left-width: 12px;
+  border-radius: 12px;
+  background: var(--cartao);
+}
+
+.unid h3 {
+  margin: 0 0 .4rem;
+}
+
+.unid h4 {
+  margin: .8rem 0 .2rem;
+}
+
+.unid ul {
+  margin: .2rem 0 .8rem;
+  padding-left: 1.2rem;
+}

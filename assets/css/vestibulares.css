@@ -1,0 +1,285 @@
+/* Página de vestibulares: comparação clara entre região, custo e próxima ação. */
+.vest-intro {
+  margin: 1rem 0 2rem;
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+  border-radius: 20px;
+  background: #142b45;
+  color: #fff;
+}
+
+.vest-intro h1 {
+  margin: .2rem 0 .5rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.vest-intro p:last-child {
+  max-width: 60ch;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.vest-etiqueta {
+  margin: 0;
+  color: #FFE08A;
+  font-size: .88rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.vest-sec {
+  margin: 2rem 0;
+}
+
+.vest-sec > h2,
+.preparo-vest > h2 {
+  margin-bottom: .4rem;
+}
+
+.escopo-vest {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .65rem;
+  margin: 1rem 0;
+}
+
+.escopo-botao {
+  min-height: 54px;
+  padding: .6rem .8rem;
+  border: 2px solid var(--borda);
+  border-radius: 12px;
+  background: var(--cartao);
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.escopo-botao:hover,
+.escopo-botao[aria-pressed="true"] {
+  border-color: var(--azul);
+  background: var(--azul);
+  color: var(--sobre);
+}
+
+#form-vest {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--borda);
+}
+
+.filtros-localidade {
+  margin-top: .5rem;
+}
+
+.filtros-adicionais {
+  margin: 1rem 0;
+  padding: .35rem 1rem 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--fundo);
+}
+
+.filtros-adicionais > summary {
+  padding: .7rem 0;
+}
+
+.filtros-adicionais .linha > div {
+  min-width: 220px;
+}
+
+.vest-nota {
+  padding: .8rem 1rem;
+  border-left: 5px solid var(--ambar);
+  border-radius: 0 10px 10px 0;
+  background: var(--suave);
+  font-size: .95rem;
+}
+
+#limpar {
+  width: auto;
+}
+
+#t-res {
+  margin-top: 2.5rem;
+}
+
+#status-filtro {
+  min-height: 1.5em;
+}
+
+#resultado .grade,
+#relacionados .grade {
+  margin: 1rem 0 2rem;
+}
+
+#resultado .cartao.unid,
+#relacionados .cartao.unid {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  border: 1px solid var(--borda);
+  border-top: 5px solid var(--azul);
+  border-radius: 16px;
+}
+
+#resultado .cartao.unid h3,
+#relacionados .cartao.unid h3 {
+  margin: .25rem 0;
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+
+#resultado .cartao.unid .btn,
+#relacionados .cartao.unid .btn {
+  width: fit-content;
+  margin-top: auto;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: 0 0 .6rem;
+}
+
+.tag.principal {
+  background: var(--ambar);
+  color: #000;
+}
+
+.preparo-vest {
+  margin: 3rem 0 2rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-radius: 20px;
+  background: var(--suave);
+}
+
+.preparo-vest > p:not(.vest-etiqueta) {
+  max-width: 65ch;
+}
+
+.plano-estudo {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.1rem 1.25rem;
+  border-left: 5px solid var(--azul);
+  border-radius: 0 14px 14px 0;
+  background: var(--cartao);
+}
+
+.plano-estudo h3 {
+  margin: 0 0 .6rem;
+}
+
+.plano-estudo ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.plano-estudo li {
+  padding-left: .2rem;
+}
+
+.preparo-grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .9rem;
+  margin: 1rem 0;
+}
+
+.preparo-card {
+  display: flex;
+  min-height: 245px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.2rem;
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  background: var(--cartao);
+}
+
+.preparo-card h3 {
+  margin: .75rem 0 .35rem;
+}
+
+.preparo-card p {
+  margin: .25rem 0 1rem;
+}
+
+.preparo-card > a:last-child {
+  margin-top: auto;
+}
+
+.preparo-card .btn {
+  width: auto;
+}
+
+.preparo-destaque {
+  border-top: 5px solid var(--azul);
+}
+
+.preparo-numero {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--azul);
+  color: var(--sobre);
+  font-size: .9rem;
+  font-weight: 800;
+  place-items: center;
+}
+
+body.contraste .vest-intro {
+  border: 3px solid var(--foco);
+  background: #000;
+  color: #fff;
+}
+
+body.contraste .vest-etiqueta {
+  color: #FFE14D;
+}
+
+body.contraste .escopo-botao[aria-pressed="true"] {
+  border-color: var(--foco);
+  background: #000;
+  color: var(--foco);
+}
+
+body.contraste .preparo-numero {
+  border: 2px solid var(--foco);
+  background: #000;
+  color: var(--foco);
+}
+
+body.contraste .plano-estudo {
+  border: 2px solid var(--foco);
+  border-left-width: 5px;
+  background: #000;
+}
+
+@media (max-width: 760px) {
+  .escopo-vest {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .preparo-grade {
+    grid-template-columns: 1fr;
+  }
+
+  .plano-estudo ol {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .escopo-vest {
+    grid-template-columns: 1fr;
+  }
+
+  .preparo-card {
+    min-height: 0;
+  }
+}
