@@ -17,7 +17,7 @@
   const CUSTO = /(quanto custa|preciso pagar|e pago|e gratis|e gratuito|tem taxa|custo)/;
   const GOLPE = /(golpe|fraude|falso|cobraram|cobrando|me pediu senha|pix.*(suspeit|golpe|fraude|roub))/;
   const IDENT = /(quem e voce|voce e (uma |um )?(robo|pessoa|humano|humana)|como voce funciona|o que voce faz)/;
-  const TEL = [["192", "SAMU: urgência médica"], ["190", "Polícia Militar"], ["193", "Bombeiros"], ["180", "Atendimento à Mulher"], ["100", "Direitos Humanos"], ["188", "CVV: apoio emocional, gratuito e 24 horas"], ["135", "INSS"], ["136", "Disque Saúde"], ["121", "CadÚnico e Bolsa Família"], ["158", "Seguro-desemprego"], ["(11) 4744-7322", "Procon Suzano: defesa do consumidor (atendimento local)"]];
+  const TEL = [["192", "SAMU: urgência médica"], ["190", "Polícia Militar"], ["193", "Bombeiros"], ["180", "Atendimento à Mulher"], ["100", "Direitos Humanos"], ["188", "CVV: apoio emocional, gratuito e 24 horas"], ["135", "INSS"], ["136", "Disque Saúde"], ["121", "CadÚnico e Bolsa Família"], ["158", "Seguro-desemprego"]];
   const SUG = ["Preciso de atendimento médico", "Perdi meus documentos", "Fiquei desempregado", "Preciso de ajuda financeira", "O que é inclusão digital?"];
   const REF_SUG = ["O que é o ODS 11?", "O que é inclusão digital?", "Preciso de ajuda financeira"];
   /* Perguntas gerais sobre os temas do site: cidades para todos, inclusão digital, zona rural e ODS 11. */

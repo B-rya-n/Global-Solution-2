@@ -1,11 +1,11 @@
 (function () {
   "use strict";
-  /* Tipos de unidade pública. O mapa é aberto com a busca feita na hora, então os endereços nunca ficam desatualizados. */
+  /* Tipos úteis para iniciar buscas sem cadastro local verificado. */
   const UNIDADES = [
     { nome: "UPA 24 horas", grupo: "Saúde", busca: "UPA 24 horas", tel: "192 (SAMU), se for grave", quando: "Febre alta, dor forte, corte profundo, fratura ou mal-estar que não pode esperar consulta marcada.", leve: ["Documento com foto", "Cartão SUS, se tiver"] },
     { nome: "Pronto-socorro / hospital", grupo: "Saúde", busca: "pronto socorro hospital", tel: "192 (SAMU)", quando: "Casos graves: falta de ar, dor no peito, acidente, desmaio ou sangramento forte.", leve: ["Documento com foto", "Exames e receitas anteriores"] },
     { nome: "UBS (posto de saúde)", grupo: "Saúde", busca: "UBS unidade básica de saúde", tel: "136 (Disque Saúde)", quando: "Consulta de rotina, vacina, pré-natal, curativo, encaminhamento a especialista e remédios do SUS.", leve: ["Documento com foto", "Caderneta de vacinação", "Comprovante de endereço"] },
-    { nome: "CAPS (saúde mental)", grupo: "Saúde", busca: "CAPS centro de atenção psicossocial", tel: "188 (CVV, 24 horas)", quando: "Ansiedade, depressão, crises emocionais ou uso problemático de álcool e outras drogas.", leve: ["Documento com foto, se possível"] },
+    { nome: "CAPS (saúde mental)", grupo: "Saúde", busca: "CAPS centro de atenção psicossocial", tel: "", quando: "Ansiedade, depressão, crises emocionais ou uso problemático de álcool e outras drogas.", leve: ["Documento com foto, se possível"] },
     { nome: "Farmácia Popular", grupo: "Saúde", busca: "Farmácia Popular do Brasil", tel: "136 (Disque Saúde)", quando: "Retirar medicamentos de programa, como os de pressão e diabetes, com receita válida.", leve: ["Documento com foto", "CPF", "Receita médica"] },
     { nome: "CRAS", grupo: "Assistência social", busca: "CRAS centro de referência de assistência social", tel: "121 (MDS)", quando: "Fazer ou atualizar o CadÚnico, pedir orientação sobre Bolsa Família, BPC e outros benefícios.", leve: ["CPF ou documento do responsável", "Documentos de quem mora na casa", "Comprovante de endereço"] },
     { nome: "CREAS", grupo: "Assistência social", busca: "CREAS centro de referência especializado de assistência social", tel: "100 (Direitos Humanos)", quando: "Violência, abandono, maus-tratos ou outra violação de direitos.", leve: ["Documento com foto, se possível"] },
@@ -39,17 +39,22 @@
 
   const servico = $("servico-local"), bairro = $("bairro-local");
   const norm = texto => texto.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const emSuzano = () => /^suzano(?:\s*[\/,–-]?\s*(?:sp|sao paulo))?$/.test(norm(cid.value));
-  const doGrupo = () => cadastroSuzano.filter(u => u.grupo === sel.value);
+  const todasUnidades = [...unidadesBrasil, ...cadastroSuzano];
+  const cidadeOficial = () => {
+    const cidade = norm(cid.value).replace(/\s*[,/–-]\s*(ac|al|ap|am|ba|ce|df|es|go|ma|mt|ms|mg|pa|pb|pr|pe|pi|rj|rn|rs|ro|rr|sc|sp|se|to)$/, "").replace(/\s+/g, " ").trim();
+    return todasUnidades.find(u => norm(u.cidade) === cidade)?.cidade || "";
+  };
+  const doGrupo = () => todasUnidades.filter(u => u.grupo === sel.value && u.cidade === cidadeOficial());
   function opcoes(campo, valores, todos) {
     const anterior = campo.value;
-    campo.replaceChildren(new Option(todos, ""));
-    [...new Set(valores)].sort().forEach(v => campo.add(new Option(v, v)));
-    if (valores.includes(anterior)) campo.value = anterior;
+    const unicos = [...new Set(valores)].sort();
+    if (campo.tagName === "INPUT") { campo.list.replaceChildren(...unicos.map(v => new Option(v, v))); if (anterior && !unicos.some(v => norm(v) === norm(anterior))) campo.value = ""; return; }
+    campo.replaceChildren(new Option(todos, ""), ...unicos.map(v => new Option(v, v)));
+    if (unicos.includes(anterior)) campo.value = anterior;
   }
   function atualizar() {
     const locais = doGrupo();
-    $("filtros-locais").hidden = !emSuzano() || !locais.length;
+    $("filtros-locais").hidden = !cidadeOficial() || !locais.length;
     opcoes(servico, locais.map(u => u.servico), "Todos os serviços da área");
     opcoes(bairro, locais.filter(u => !servico.value || u.servico === servico.value).map(u => u.bairro), "Todos os bairros cadastrados");
     out.textContent = "Selecione “Mostrar unidades” para consultar.";
@@ -65,20 +70,36 @@
     servico.value = inicial.get("servico"); atualizar();
   }
   function mostrarLocais() {
-    const lista = doGrupo().filter(u => (!servico.value || u.servico === servico.value) && (!bairro.value || u.bairro === bairro.value));
-    const resumo = el("p", "ok", lista.length === 1 ? "1 unidade cadastrada em Suzano." : lista.length + " unidades cadastradas em Suzano.");
+    const filtroBairro = norm(bairro.value);
+    const lista = doGrupo().filter(u => (!servico.value || u.servico === servico.value) && (!filtroBairro || norm(u.bairro).includes(filtroBairro)));
+    const municipio = cidadeOficial();
+    const resumo = el("p", "ok");
+    resumo.setAttribute("role", "status"); resumo.setAttribute("aria-live", "polite");
+    const tamanhoLote = 20; let exibidas = 0;
+    const atualizarResumo = () => { resumo.textContent = lista.length + (lista.length === 1 ? " unidade encontrada em " : " unidades encontradas em ") + municipio + ". Exibindo " + exibidas + " de " + lista.length + "."; };
     resumo.tabIndex = -1; out.append(resumo); resumo.focus();
+    if (!lista.length) { resumo.textContent = "Nenhuma unidade corresponde a esse serviço ou bairro em " + municipio + ". Remova o filtro de bairro ou consulte o órgão responsável."; return; }
     const grade = el("div", "grade");
-    lista.forEach(u => {
-      const endereco = u.rua + " – " + u.bairro + ", Suzano - SP";
+    const mais = el("button", "btn sec", ""); mais.type = "button";
+    function mostrarProximoLote() {
+      lista.slice(exibidas, exibidas + tamanhoLote).forEach(u => {
+      const endereco = u.rua + " – " + u.bairro + ", " + u.cidade + " - " + u.uf;
       const card = el("article", "cartao unid");
       card.append(el("span", "tag", u.servico), el("h3", "", u.nome), el("p", "", u.descricao), el("p", "", endereco), el("p", "", u.orientacao));
+      if (u.cnes) card.append(el("p", "", "Código CNES: " + u.cnes));
       if (u.telefones && u.telefones.length) {
-        const contatos = el("p", ""); contatos.appendChild(el("strong", "", "Canal telefônico relacionado (não é contato direto da unidade): "));
+        const contatos = el("p", ""); contatos.appendChild(el("strong", "", u.cidade === "Suzano" ? "Canal telefônico relacionado (não é contato direto da unidade): " : "Telefone cadastrado: "));
         u.telefones.forEach((telefone, i) => {
           if (i) contatos.appendChild(document.createTextNode(" · "));
           const ligar = el("a", "", telefone); ligar.href = "tel:" + telefone.replace(/\D/g, ""); contatos.appendChild(ligar);
         });
+        card.appendChild(contatos);
+      } else if (u.telefone) {
+        const contatos = el("p", ""); contatos.appendChild(el("strong", "", "Telefone cadastrado no CNES: "));
+        const telefone = u.telefone;
+        if (/^[+\d\s()./-]{8,}$/.test(telefone)) {
+          const ligar = el("a", "", telefone); ligar.href = "tel:" + telefone.replace(/\D/g, ""); contatos.appendChild(ligar);
+        } else contatos.appendChild(document.createTextNode(telefone));
         card.appendChild(contatos);
       }
       const fonte = el("a", "", "Consultar fonte oficial"); fonte.href = u.fonte; fonte.target = "_blank"; fonte.rel = "noopener";
@@ -88,7 +109,13 @@
       rota.href = url.href; rota.target = "_blank"; rota.rel = "noopener";
       const linha = el("p"); linha.append(fonte); card.append(linha, rota); grade.append(card);
     });
-    out.append(grade);
+      exibidas = Math.min(exibidas + tamanhoLote, lista.length); atualizarResumo();
+      if (exibidas < lista.length) mais.textContent = "Mostrar mais unidades (" + (lista.length - exibidas) + ")";
+      else { mais.remove(); resumo.focus(); }
+    }
+    if (lista.length > tamanhoLote) { out.append(grade, mais); mais.addEventListener("click", mostrarProximoLote); }
+    else out.appendChild(grade);
+    mostrarProximoLote();
   }
 
   form.addEventListener("submit", ev => {
@@ -96,19 +123,25 @@
     err.textContent = ""; sel.removeAttribute("aria-invalid"); cid.removeAttribute("aria-invalid"); out.textContent = "";
     if (!sel.value) { err.textContent = "Escolha o tipo de atendimento que você procura."; sel.setAttribute("aria-invalid", "true"); sel.focus(); return; }
     if (!pos && cid.value.trim().length < 2) { err.textContent = "Digite o nome da sua cidade ou use o botão de localização."; cid.setAttribute("aria-invalid", "true"); cid.focus(); return; }
-    if (emSuzano() && doGrupo().length) { mostrarLocais(); return; }
-    out.append(el("p", "aviso", "Não há endereços cadastrados para esta seleção. Veja os tipos de unidade e consulte o mapa."));
+    if (cidadeOficial() && doGrupo().length) { mostrarLocais(); return; }
+    out.append(el("p", "aviso", "O site ainda não tem endereços verificados para esta cidade. Os resultados do mapa são externos e não confirmam disponibilidade, funcionamento ou vínculo com o serviço público."));
     const lista = UNIDADES.filter(u => u.grupo === sel.value);
-    const topo = el("p", "ok", lista.length + " tipos de unidade para “" + sel.value + "” " + (pos ? "perto de você." : "em " + cid.value.trim() + "."));
+    const topo = el("p", "ok", lista.length + " tipos de unidade para pesquisar " + (pos ? "perto da localização informada" : "em " + cid.value.trim()) + ". Use “Ver no mapa” e confirme os dados com o órgão responsável.");
     topo.setAttribute("role", "status");
     out.appendChild(topo);
+    if (sel.value === "Saúde") {
+      const fonte = el("p", "aviso", "Para consultar o cadastro nacional de unidades de saúde, use os filtros “Município” e “Atende SUS: Sim” no CNES. Confirme se a unidade oferece o serviço que você procura.");
+      const link = el("a", "", "Abrir consulta oficial do CNES"); link.href = "https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp"; link.target = "_blank"; link.rel = "noopener";
+      fonte.append(document.createTextNode(" "), link); out.appendChild(fonte);
+    }
     const grade = el("div", "grade");
     lista.forEach(u => {
       const c = el("article", "cartao unid");
       c.appendChild(el("h3", "", u.nome));
       c.appendChild(el("span", "tag", u.grupo));
       const q = el("p"); q.appendChild(el("strong", "", "Quando procurar: ")); q.appendChild(document.createTextNode(u.quando)); c.appendChild(q);
-      c.appendChild(el("h4", "", "O que levar"));
+      c.appendChild(el("h4", "", "O que pode ajudar a levar"));
+      c.appendChild(el("p", "", "Esta lista é uma referência. Documentos e critérios variam; confirme com o órgão responsável."));
       const ul = el("ul"); u.leve.forEach(l => ul.appendChild(el("li", "", l))); c.appendChild(ul);
       if (u.tel) { const t = el("p", "tel"); t.appendChild(el("strong", "", "Canal telefônico relacionado (não é contato direto da unidade): ")); t.appendChild(document.createTextNode(u.tel)); c.appendChild(t); }
       const a = el("a", "btn amarelo", "Ver no mapa");

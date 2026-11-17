@@ -1,4 +1,4 @@
-// O endereço e o canal oficial pertencem à unidade. A rota usa o endereço completo.
+// Endereços locais cadastrados com referência oficial por município. A rota usa o endereço completo.
 const cadastroSuzano = (() => {
   const saude = "https://suzano.sp.gov.br/saude/unidades-basicas-de-saude/lista-de-enderecos/";
   const ubs = "https://suzano.sp.gov.br/wp-content/uploads/2025/05/Carta-de-Servicos-RAPSVDS.docx.pdf";
@@ -29,8 +29,32 @@ const cadastroSuzano = (() => {
     ["OAB Suzano · sede da 55ª Subseção", "Assistência judiciária", "Rua Baruel, 592", "Vila Adelina", "https://www.oabsp.org.br/subsecao/suzano"],
     ["CEJUSC Suzano", "Conciliação", "Rua Baruel, 126", "Centro", "https://www.tjsp.jus.br/Download/Conciliacao/Nucleo/Enderecos_Cejusc.pdf"]
   ];
-  return dados.map(([nome, servico, rua, bairro, fonte, telefones]) => {
+  const mogiSaude = "https://site.mogidascruzes.sp.gov.br/unidades-e-equipamentos/saude";
+  const mogiSocial = "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-assistencia-social/unidades";
+  const poaSaude = "https://poa.sp.gov.br/cidade/saude/";
+  const adicionais = [
+    ["UBS Alto do Ipiranga", "Atenção básica", "Rua Capitão Joaquim de Melo Freire, 700", "Alto do Ipiranga", "Mogi das Cruzes", mogiSaude],
+    ["UBS Botujuru", "Atenção básica", "Rua Frei Bonifácio Harink, 313", "Vila São Paulo", "Mogi das Cruzes", mogiSaude],
+    ["UBS Braz Cubas", "Atenção básica", "Rua Padre Álvaro Quinhones Zuniga, 340", "Braz Cubas", "Mogi das Cruzes", mogiSaude],
+    ["UBS Jardim Camila", "Atenção básica", "Avenida Presidente Getúlio Vargas, 999", "Jardim Camila", "Mogi das Cruzes", mogiSaude],
+    ["UBS Jundiapeba", "Atenção básica", "Rua Vereador Nito Sona, 1745", "Jundiapeba", "Mogi das Cruzes", mogiSaude],
+    ["CRAS Centro", "Orientação social", "Rua Professor Flaviano de Melo, 525", "Centro", "Mogi das Cruzes", mogiSocial],
+    ["CRAS César de Souza", "Orientação social", "Rua Antônio Máximo, 344", "Vila Suissa", "Mogi das Cruzes", mogiSocial],
+    ["CRAS Jundiapeba I", "Orientação social", "Rua Dolores de Aquino, 2083", "Jundiapeba", "Mogi das Cruzes", mogiSocial],
+    ["Hospital Municipal Dr. Guido Guida", "Pronto atendimento", "Rua Barão de Juparanã, 43", "Jardim Medina", "Poá", poaSaude],
+    ["UBS Vila Jaú", "Atenção básica", "Rua Inácia Alves da Silva, 444", "Vila Jaú", "Poá", poaSaude],
+    ["UBS Vila Pereta", "Atenção básica", "Rua Lindolfo Raimundo Ribeiro, 270", "Vila Pereta", "Poá", poaSaude],
+    ["UBS Santa Helena", "Atenção básica", "Rua Mem de Sá, 560", "Jardim Santa Helena", "Poá", poaSaude],
+    ["UBS Calmon Viana (Tito Fuga)", "Atenção básica", "Rua Maria Helena, 159", "Calmon Viana", "Poá", poaSaude],
+    ["UBS Jardim América (Wellington Lopes)", "Atenção básica", "Rua Esmeralda, 88", "Jardim América", "Poá", poaSaude]
+  ];
+  const suzano = dados.map(([nome, servico, rua, bairro, fonte, telefones]) => {
     const [grupo, descricao, orientacao] = grupos[servico];
-    return {nome, servico, grupo, rua, bairro, fonte, telefones: telefones || [], descricao, orientacao};
+    return {nome, servico, grupo, rua, bairro, cidade: "Suzano", uf: "SP", fonte, telefones: telefones || [], descricao, orientacao};
   });
+  const outras = adicionais.map(([nome, servico, rua, bairro, cidade, fonte]) => {
+    const [grupo, descricao, orientacao] = grupos[servico];
+    return {nome, servico, grupo, rua, bairro, cidade, uf: "SP", fonte, telefones: [], descricao, orientacao};
+  });
+  return [...suzano, ...outras];
 })();

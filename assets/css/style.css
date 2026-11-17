@@ -285,6 +285,18 @@ body.contraste .topo nav a[aria-current="page"] {
   border-radius: 50%;
 }
 
+/* O ícone de tema mantém uma base clara para continuar visível no alto contraste. */
+body.contraste .modo-tema {
+  border-color: #fff;
+  background: #fff;
+  color: #000;
+}
+
+body.contraste .modo-tema .icone-tema {
+  background: #fff;
+  box-shadow: 0 0 0 2px #000;
+}
+
 .acess #leitura-status:empty,
 .acess #status-acess:empty {
   display: none;

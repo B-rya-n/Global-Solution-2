@@ -29,7 +29,7 @@
 <main id="principal" class="wrap">
   <p class="migalhas"><a href="../index.html">Início</a> › Atendimento perto de você</p>
   <h1>Atendimento perto de você</h1>
-  <p class="lead-escuro">Veja endereços cadastrados em Suzano (SP). Em outras cidades, consulte os tipos de unidade e abra a busca no mapa. Confirme o local e o horário antes de sair.</p>
+  <p class="lead-escuro">Consulte unidades públicas de saúde nas dez cidades mais populosas e unidades locais cadastradas em Suzano, Mogi das Cruzes e Poá. A lista nacional vem do CNES e inclui registros ativos com atendimento ambulatorial pelo SUS. Para outros tipos de atendimento e municípios, a busca abre resultados externos no mapa; confirme com o órgão responsável.</p>
   <div class="emerg" role="note">
     <strong>Emergência?</strong> Não use o formulário: ligue <strong>192</strong> (SAMU), <strong>190</strong> (Polícia) ou <strong>193</strong> (Bombeiros).
   </div>
@@ -38,10 +38,12 @@
     <p class="erro" id="erro-grupo" aria-live="assertive"></p>
     <select id="grupo" aria-describedby="erro-grupo"><option value="">Escolha uma opção</option></select>
     <label for="cidade">Sua cidade</label>
-    <input type="text" id="cidade" autocomplete="address-level2" value="Suzano" placeholder="Ex.: Suzano, SP" aria-describedby="erro-grupo status-loc">
+    <input type="text" id="cidade" autocomplete="address-level2" list="cidades-cobertas" placeholder="Digite ou escolha uma cidade" aria-describedby="ajuda-cidade erro-grupo status-loc">
+    <p id="ajuda-cidade" class="dica">As dez cidades mais populosas seguem o Censo 2022. A lista de saúde usa dados abertos do CNES, atualizados em 14/11/2026. <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102011.pdf" target="_blank" rel="noopener">Ver ranking do IBGE</a> · <a href="https://dadosabertos.saude.gov.br/dataset/cnes-cadastro-nacional-de-estabelecimentos-de-saude" target="_blank" rel="noopener">Ver base oficial do CNES</a>.</p>
+    <datalist id="cidades-cobertas"><option value="São Paulo - SP"><option value="Rio de Janeiro - RJ"><option value="Brasília - DF"><option value="Fortaleza - CE"><option value="Salvador - BA"><option value="Belo Horizonte - MG"><option value="Manaus - AM"><option value="Curitiba - PR"><option value="Recife - PE"><option value="Goiânia - GO"><option value="Suzano - SP"><option value="Mogi das Cruzes - SP"><option value="Poá - SP"></datalist>
     <div id="filtros-locais" hidden>
-      <label for="servico-local">Serviço em Suzano</label><select id="servico-local"></select>
-      <label for="bairro-local">Bairro da unidade</label><select id="bairro-local"></select>
+      <label for="servico-local">Serviço disponível na cidade</label><select id="servico-local"></select>
+      <label for="bairro-local">Pesquisar por bairro (opcional)</label><input id="bairro-local" type="text" list="lista-bairros" placeholder="Todos os bairros"><datalist id="lista-bairros"></datalist>
     </div>
     <p><button class="btn sec" id="usar-loc" type="button">Usar minha localização</button> <span id="status-loc" role="status"></span></p>
     <p><button class="btn" type="submit">Mostrar unidades</button></p>
@@ -49,7 +51,7 @@
   <section aria-labelledby="t-res"><h2 id="t-res">Unidades indicadas</h2>
     <div id="resultado" aria-live="polite"><p class="aviso">Preencha o formulário acima para ver as unidades.</p></div>
   </section>
-  <p class="aviso">Ao abrir uma rota, o Google Maps recebe o endereço da unidade e, se você permitiu, sua localização de partida. Confirme horário e atendimento antes de sair de casa.</p>
+  <p class="aviso">Ao abrir um mapa, o serviço de mapas recebe o tipo de unidade e o município pesquisados. Se você usar sua localização, as coordenadas também serão compartilhadas. Confirme endereço, atendimento e horário com o órgão responsável antes de sair.</p>
 </main>
 <footer><div class="wrap">
   <p>Facilita Cidadão é um guia independente, não é um site do governo. Não pedimos cadastro, senha ou dados bancários. A localização só é usada com sua autorização em Serviços ou Atendimento. Confirme as regras nos canais oficiais.</p>
@@ -60,7 +62,8 @@
 <script src="../assets/js/dados.js"></script>
 <script src="../assets/js/busca.js"></script>
 <script src="../assets/js/ferramentas.js"></script>
-<script src="../assets/js/assistente.js"></script>
+<script src="../assets/js/assistente.js?v=20261117"></script>
+<script src="../assets/js/unidades-brasil.js"></script>
 <script src="../assets/js/unidades-suzano.js"></script>
 <script src="../assets/js/atendimento.js"></script>
 <script src="../assets/js/leitura.js"></script>

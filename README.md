@@ -8,7 +8,7 @@ Pessoas podem ter dificuldade para descobrir o serviço público adequado, espec
 
 ## Solução
 
-O Facilita Cidadão oferece busca de serviços e orientações, checklist de documentos, passos para solicitar atendimento, localizador de unidades em Suzano, orientador inicial de direitos, ajustes de leitura, alto contraste e leitura em voz alta. É um guia independente; não substitui os canais oficiais.
+O Facilita Cidadão oferece busca de serviços e orientações, checklist de documentos, passos para solicitar atendimento, localizador de unidades públicas de saúde nas dez cidades mais populosas do Brasil e diretórios locais de Suzano, Mogi das Cruzes e Poá. O orientador de direitos, ajustes de leitura, alto contraste e leitura em voz alta também estão disponíveis. É um guia independente; não substitui os canais oficiais.
 
 ## ODS relacionados
 
@@ -32,7 +32,9 @@ O Facilita Cidadão oferece busca de serviços e orientações, checklist de doc
 
 ## Funcionalidade principal para demonstrar
 
-Na página **Serviços**, pesquise uma necessidade ou escolha uma categoria. Abra uma opção, marque documentos que já separou e consulte as etapas e o canal oficial. A busca usa 33 registros locais em `assets/js/dados.js`; o React atualiza os resultados na própria página.
+Na página **Serviços**, pesquise uma necessidade ou escolha uma categoria. Abra uma opção, marque itens de referência que já separou e consulte as etapas e o canal oficial. A busca usa 33 registros em `assets/js/dados.js`; o React atualiza os resultados na própria página.
+
+Na página **Atendimento**, escolha Saúde e uma cidade para filtrar estabelecimentos públicos com atendimento ambulatorial pelo SUS cadastrados no CNES. O recorte das dez cidades usa o arquivo nacional do Ministério da Saúde atualizado em 14/11/2026 (`assets/js/unidades-brasil.js`). Para outras áreas ou municípios, a página abre resultados de mapa externos; confirme disponibilidade e horário com o órgão responsável.
 
 A busca geral procura texto nas páginas do site e também nos catálogos de serviços, direitos, vestibulares e unidades. Se o conteúdo das páginas for alterado, atualize o índice local com `py -3 tools/gerar-indice-site.py`.
 
@@ -56,3 +58,6 @@ As páginas apontam para canais oficiais quando tratam de regras, benefícios e 
 ## Privacidade
 
 O protótipo não pede cadastro, senha ou CPF. As respostas dos formulários são processadas no navegador e não são enviadas a um servidor pelo site. Links para serviços externos e permissões de localização ficam sujeitos às regras desses serviços.
+
+
+

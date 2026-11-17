@@ -81,18 +81,19 @@
         h("div", null, h("h3", null, s.nome), h("span", { className: "tag" }, s.categoria))),
       h("p", null, h("strong", null, "Para quem: "), s.publico),
       (["Atendimento pelo SUS", "Cadastro Único (CadÚnico)", "Bolsa Família", "Defensoria Pública"].includes(s.nome) || s.nome.startsWith("Procon (")) && h("p", null,
-        h("a", { href: "atendimento.html?area=" + encodeURIComponent(s.categoria) + (s.nome.startsWith("Procon (") ? "&servico=" + encodeURIComponent("Orientação ao consumidor") : s.nome === "Defensoria Pública" ? "&servico=" + encodeURIComponent("Assistência judiciária") : "") }, s.nome.startsWith("Procon (") ? "Ver endereço do Procon em Suzano" : "Consultar unidades de " + s.categoria.toLowerCase() + " em Suzano")),
+        h("a", { href: "atendimento.html?area=" + encodeURIComponent(s.categoria) + (s.nome.startsWith("Procon (") ? "&servico=" + encodeURIComponent("Orientação ao consumidor") : s.nome === "Defensoria Pública" ? "&servico=" + encodeURIComponent("Assistência judiciária") : "") }, s.nome.startsWith("Procon (") ? "Buscar Procon por cidade" : "Buscar unidades de " + s.categoria.toLowerCase() + " por cidade")),
       s.nome.startsWith("Psicólogo e saúde mental") && h("p", null,
-        h("a", { href: "atendimento.html?area=Sa%C3%BAde&servico=Aten%C3%A7%C3%A3o%20psicossocial" }, "Ver CAPS em Suzano"), " · ",
-        h("a", { href: "https://suzano.sp.gov.br/saude/unidades-basicas-de-saude/lista-de-enderecos/", target: "_blank", rel: "noopener" }, "Ver endereços de UBS no site da Prefeitura")),
+        h("a", { href: "atendimento.html?area=Sa%C3%BAde&servico=Aten%C3%A7%C3%A3o%20psicossocial" }, "Buscar CAPS por cidade"), " · ",
+        h("a", { href: "https://www.gov.br/saude/pt-br/composicao/saes/desmad/raps/caps/caps", target: "_blank", rel: "noopener" }, "Consultar informações oficiais sobre CAPS")),
       s.onde && h("p", null, h("strong", null, "Onde: "), s.onde),
       h(window.FCPlus.UnidadesVinculadas, { s }),
       h("div", { className: "prog-linha" },
-        h("progress", { max: total, value: n, "aria-label": "Documentos separados: " + s.nome }),
-        h("span", { className: "prog" }, n + " de " + total + " documentos" + (n === total ? " · tudo pronto!" : ""))),
+        h("progress", { max: total, value: n, "aria-label": "Itens de referência separados: " + s.nome }),
+        h("span", { className: "prog" }, n + " de " + total + " itens de referência separados")),
       h("details", { open: aberto },
-        h("summary", null, "Ver documentos e passo a passo"),
-        h("h4", null, "Documentos: marque o que você já separou"),
+        h("summary", null, "Ver lista de apoio e passo a passo"),
+        h("p", { className: "aviso orientacao-documentos" }, "Esta é uma lista inicial para ajudar na preparação, não uma exigência confirmada. Documentos, prazos e regras podem mudar conforme o serviço, o município e a situação da pessoa. Confira no canal oficial antes de sair. Se faltar algum item, pergunte ao órgão se ainda pode iniciar o atendimento."),
+        h("h4", null, "Itens que podem ajudar: marque o que já separou"),
         h("ul", { className: "docs" }, s.documentos.map((d, j) => {
           const id = pre + "-" + i + "-" + j;
           return h("li", { key: j }, h("label", { htmlFor: id },
@@ -100,7 +101,7 @@
         })),
         h("h4", null, "Passo a passo"),
         h("ol", { className: "passos" }, s.etapas.map((e, j) => h("li", { key: j }, e))),
-        h("p", null, h("a", { href: s.fonte, target: "_blank", rel: "noopener" }, s.fonteLabel || "Canal oficial (abre em outra aba)")),
+        h("p", null, h("a", { href: s.fonte, target: "_blank", rel: "noopener" }, s.fonteLabel || "Consultar canal oficial e confirmar as regras (abre em outra aba)")),
         ferramentas));
   }
 
