@@ -20,3 +20,73 @@
   margin: .2rem 0 .8rem;
   padding-left: 1.2rem;
 }
+
+.cidade-picker {
+  margin: .65rem 0 .35rem;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  background: var(--cartao);
+  overflow: hidden;
+}
+
+.cidade-picker summary {
+  min-height: 48px;
+  padding: .8rem 1rem;
+  color: var(--azul-esc);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.cidade-picker summary:focus-visible,
+.cidade-opcoes button:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: -3px;
+}
+
+.cidade-opcoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: .55rem;
+  padding: 0 .75rem .75rem;
+}
+
+.cidade-opcoes button {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  padding: .65rem .8rem;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: var(--fundo);
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cidade-opcoes button:hover {
+  border-color: var(--azul);
+  background: var(--suave);
+}
+
+.cidade-opcoes button span {
+  flex: 0 0 auto;
+  padding: .15rem .45rem;
+  border-radius: 6px;
+  background: var(--suave);
+  color: var(--azul-esc);
+  font-size: .82em;
+  font-weight: 800;
+}
+
+body.contraste .cidade-picker,
+body.contraste .cidade-opcoes button {
+  border-color: var(--borda);
+}
+
+@media (max-width: 520px) {
+  .cidade-opcoes { grid-template-columns: 1fr; }
+}

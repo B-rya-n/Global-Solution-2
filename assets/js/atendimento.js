@@ -40,11 +40,21 @@
   const servico = $("servico-local"), bairro = $("bairro-local");
   const norm = texto => texto.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   const todasUnidades = [...unidadesBrasil, ...cadastroSuzano];
+  // Índices em memória evitam varrer milhares de registros a cada tecla.
+  const cidadesIndexadas = new Map();
+  const unidadesPorCidadeEGrupo = new Map();
+  for (const unidade of todasUnidades) {
+    const chaveCidade = norm(unidade.cidade);
+    if (!cidadesIndexadas.has(chaveCidade)) cidadesIndexadas.set(chaveCidade, unidade.cidade);
+    const chaveGrupo = chaveCidade + "|" + unidade.grupo;
+    if (!unidadesPorCidadeEGrupo.has(chaveGrupo)) unidadesPorCidadeEGrupo.set(chaveGrupo, []);
+    unidadesPorCidadeEGrupo.get(chaveGrupo).push(unidade);
+  }
   const cidadeOficial = () => {
     const cidade = norm(cid.value).replace(/\s*[,/–-]\s*(ac|al|ap|am|ba|ce|df|es|go|ma|mt|ms|mg|pa|pb|pr|pe|pi|rj|rn|rs|ro|rr|sc|sp|se|to)$/, "").replace(/\s+/g, " ").trim();
-    return todasUnidades.find(u => norm(u.cidade) === cidade)?.cidade || "";
+    return cidadesIndexadas.get(cidade) || "";
   };
-  const doGrupo = () => todasUnidades.filter(u => u.grupo === sel.value && u.cidade === cidadeOficial());
+  const doGrupo = () => unidadesPorCidadeEGrupo.get(norm(cidadeOficial()) + "|" + sel.value) || [];
   function opcoes(campo, valores, todos) {
     const anterior = campo.value;
     const unicos = [...new Set(valores)].sort();
@@ -62,7 +72,20 @@
   sel.addEventListener("change", atualizar);
   servico.addEventListener("change", atualizar);
   bairro.addEventListener("change", atualizar);
-  cid.addEventListener("input", atualizar);
+  let timerCidade;
+  cid.addEventListener("input", () => {
+    window.clearTimeout(timerCidade);
+    timerCidade = window.setTimeout(atualizar, 120);
+  });
+  cid.addEventListener("change", atualizar);
+  document.querySelectorAll("[data-cidade]").forEach(botao => {
+    botao.addEventListener("click", () => {
+      cid.value = botao.dataset.cidade;
+      atualizar();
+      cid.focus();
+      botao.closest("details")?.removeAttribute("open");
+    });
+  });
   const inicial = new URLSearchParams(location.search);
   if (GRUPOS.includes(inicial.get("area"))) sel.value = inicial.get("area");
   atualizar();
